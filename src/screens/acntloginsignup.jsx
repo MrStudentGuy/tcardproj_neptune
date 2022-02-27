@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useCallback} from 'react';
 import './loginsignup.css';
-import { provider } from '../firebase';
-import { signInWithPopup, signInWithRedirect,  getAuth, GoogleAuthProvider } from "firebase/auth";
+import { gProvider, db } from '../firebase';
+import { signInWithPopup, getAuth} from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { collection, doc, setDoc } from "firebase/firestore"; 
 
 const LoginSignupScreen = () => {
 
     const GoogleLogin = () => {
-        signInWithRedirect(getAuth(), provider)
+        signInWithPopup(getAuth(), gProvider)
         .then((re) => {
-            console.log(re);
-            
+            RedirifLogin();
         })
         .catch((err) => {
             console.log(err);
         })
+    }
+
+    const navigate = useNavigate();
+    const handleRedir = useCallback(() => navigate('/home', {replace: true}), [navigate]);
+
+    const RedirifLogin = async () => {
+
+        await setDoc(doc(db, "User", getAuth().currentUser.uid), {
+            uid: getAuth().currentUser.uid,
+            email: getAuth().currentUser.email,
+            photoURL: getAuth().currentUser.photoURL,
+            displayName: getAuth().currentUser.displayName,
+        });
+        
+        if (getAuth().currentUser) {
+            console.log(getAuth().currentUser.displayName)
+            handleRedir();
+        }
     }
 
     return(
@@ -28,6 +47,8 @@ const LoginSignupScreen = () => {
 
                     <span>Sign in with Google</span>
                 </button>
+
+                <p1 class="imp">IMPORTANT: Make sure popups are enabled on your browser for login to work.</p1>
             </div>
         
         </div>

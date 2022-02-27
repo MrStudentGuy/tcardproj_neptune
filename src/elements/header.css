@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.header {
+    background: #000;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem calc((100vw - 1000px) / 2);
+    z-index: 10;
+}
+
+.nav-link-home {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 30pt;
+    transition: 0.2s;
+    position: relative;
+}
+
+.nav-link-home::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+.nav-link-home:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav-link-other {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 15pt;
+    transition: 0.2s;
+    position: relative;
+}
+
+.nav-link-other::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.nav-link-other:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.search-bar {
+    width: 20%;
+    transition: 0.2s;
+    transition-property: scale;
+}
+
+.search-bar:hover {
+    scale: 1.1;
+}
+
+.nav-link-pfp {
+    scale: 0.5;
+}
+
+.pfp {
+    border-radius: 100%;
+    transition: 0.2s;
+    transition-property: scale;
+}
+
+.pfp:hover {
+    scale: 1.1;
+}
