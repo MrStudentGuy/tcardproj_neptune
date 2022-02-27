@@ -10,6 +10,7 @@ const HeaderElement = () => {
             <NavLink to="/home" className="nav-link-home">Neptune</NavLink>
             <NavLink to="/marketplace" className="nav-link-other">Marketplace</NavLink>
             <NavLink to="/home" className="nav-link-other">Support</NavLink>
+            <NavLink to="/home" className="nav-link-other">Manage Cards</NavLink>
             <input placeholder= "Search for users or cards" className="search-bar" />
             <NavLink to="/home" className="nav-link-pfp"><img src={getAuth().currentUser.photoURL} alt="Profile Picture" className='pfp'></img></NavLink>
         </div>

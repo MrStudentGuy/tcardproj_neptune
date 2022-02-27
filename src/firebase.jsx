@@ -18,12 +18,8 @@ import { getFirestore } from "firebase/firestore";
 // };
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCaAOIObBvR4ZidtYmr4ccmJvnbAeIHamY",
-    authDomain: "neptune-29d31.firebaseapp.com",
-    projectId: "neptune-29d31",
-    storageBucket: "neptune-29d31.appspot.com",
-    messagingSenderId: "239829980161",
-    appId: "1:239829980161:web:397eb51687b53649071c00"
+    //Removed, because you know why
+
 };
  
 // Initialize Firebase

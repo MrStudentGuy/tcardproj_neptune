@@ -1,13 +1,14 @@
 import React, { useCallback} from 'react';
 import './loginsignup.css';
 import { gProvider, db } from '../firebase';
-import { signInWithPopup, getAuth} from "firebase/auth";
+import { signInWithPopup, getAuth, setPersistence, browserLocalPersistence} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
 const LoginSignupScreen = () => {
 
     const GoogleLogin = () => {
+        setPersistence(getAuth(), browserLocalPersistence)
         signInWithPopup(getAuth(), gProvider)
         .then((re) => {
             RedirifLogin();
